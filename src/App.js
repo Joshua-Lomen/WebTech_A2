@@ -39,8 +39,20 @@ export default function StrudelDemo() {
     // text to process
     const [procText, setProcText] = useState(stranger_tune)
 
+    // bpm
+    const [bpm, setBpm] = useState(140)
+
     // volume
     const [volume, setVolume] = useState(1);
+
+    // instrument toggles
+    // true = mute
+    // false = unmute
+    const [bassline, setBassline] = useState(false);
+    const [arp, setArp] = useState(false);
+    const [drums, setDrums] = useState(false);
+    const [drums2, setDrums2] = useState(false);
+
 
     // state for play and stop
     const [state, setState] = useState("stop");
@@ -118,7 +130,20 @@ return (
                         <div id="output" />
                     </div>
                     <div className="col-md-4">
-                        <BasicControls volumeChange={volume} onVolumeChange={(e) => setVolume(e.target.value)}/>
+                        <BasicControls 
+                            volumeChange={volume} 
+                            onVolumeChange={(e) => setVolume(e.target.value)} 
+                            bpmChange={bpm} 
+                            onBpmChange={(e) => setBpm(e.target.value)}
+                            bassChange={bassline}
+                            onBassChange={(e) => setBassline(e.target.checked)}
+                            arpChange={arp}
+                            onArpChange={(e) => setArp(e.target.checked)}
+                            dChange={drums}
+                            onDChange={(e) => setDrums(e.target.checked)}    
+                            d2Change={drums2}
+                            onD2Change={(e) => setDrums2(e.target.checked)}
+                        />
                     </div>
                 </div>
             </div>

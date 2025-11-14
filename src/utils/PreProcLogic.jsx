@@ -6,6 +6,37 @@ export function PreProcess({inputText, volume}) {
     // use this for setCPM later
     outputText = outputText.replaceAll("{$VOLUME}", volume)
 
+    // outputText = outputText.replace("setcps(140/60/4)", `setcps(${bpm}/60/4)`)
+
+    //for instrument toggles
+    // if(bass) {
+    //     outputText = outputText.replace("<bass_tag>", "_")
+    // }
+    // else {
+    //     outputText = outputText.replace("<bass_tag>", "")
+    // }
+
+    // if(arp) {
+    //     outputText = outputText.replace("<arp_tag>", "_")
+    // }
+    // else {
+    //     outputText = outputText.replace("<arp_tag>", "")
+    // }
+    
+    // if(drums) {
+    //     outputText = outputText.replace("<d_tag>", "_")
+    // }
+    // else {
+    //     outputText = outputText.replace("<d_tag>", "")
+    // }
+    
+    // if(drums2) {
+    //     outputText = outputText.replace("<d2_tag>", "_")
+    // }
+    // else {
+    //     outputText = outputText.replace("<d2_tag>", "")
+    // }
+
     let regex = /[a-zA-Z0-9_]+:\s*\n[\s\S]+?\r?\n(?=[a-zA-Z0-9_]*[:\/])/gm;
 
     let m;

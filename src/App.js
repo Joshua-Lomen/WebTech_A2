@@ -42,6 +42,20 @@ export default function StrudelDemo() {
     // bpm
     const [bpm, setBpm] = useState(140)
 
+    // input validation to keep input between min and max
+    const handleBpmInput = (e) => {
+        const newValue = e.target.value;
+        if (newValue < 60) {
+            setBpm(60);
+        }
+        else if (newValue > 220) {
+            setBpm(220);
+        }
+        else {
+            setBpm(newValue);
+        }
+    }
+
     // volume
     const [volume, setVolume] = useState(1);
 
@@ -137,7 +151,7 @@ return (
                             volumeChange={volume} 
                             onVolumeChange={(e) => setVolume(e.target.value)} 
                             bpmChange={bpm} 
-                            onBpmChange={(e) => setBpm(e.target.value)}
+                            onBpmChange={handleBpmInput}
                             bassChange={bassline}
                             onBassChange={(e) => setBassline(e.target.checked)}
                             arpChange={arp}

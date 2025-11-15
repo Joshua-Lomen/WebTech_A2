@@ -48,7 +48,7 @@ function basic_controls({ volumeChange, onVolumeChange, bpmChange, onBpmChange, 
             {/* set song speed to x/60/4 (converts cpm to bpm) */}
             <div className="input-group mb-3">
                 <span className="input-group-text" id="cpm_label">setBPM</span>
-                <input type="number" min="30" max="240" step="1" className="form-control" id="cpm_text_input" placeholder="120" aria-label="cpm" aria-describedby="cpm_label" onChange={onBpmChange}/>
+                <input type="number" min="60" max="220" step="1" className="form-control" id="cpm_text_input" placeholder="Enter number" aria-label="cpm" aria-describedby="cpm_label" onChange={onBpmChange}/>
             </div>
 
             {/* FUNCTIONAL */}

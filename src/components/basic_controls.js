@@ -1,8 +1,9 @@
-import './basic_controls.css'
+import '../stylesheets/basic_controls.css'
 
 function basic_controls({ volumeChange, onVolumeChange, bpmChange, onBpmChange, bassChange, onBassChange, arpChange, onArpChange, dChange, onDChange, d2Change, onD2Change }) {
     return (
         <>
+            {/* Accordion to store controls */}
             <div className="accordion" id="accordionPanelsStayOpenExample">
                 <div className="accordion-item">
                     <h2 className="accordion-header">
@@ -42,11 +43,12 @@ function basic_controls({ volumeChange, onVolumeChange, bpmChange, onBpmChange, 
                 </div>
             </div>
 
+            {/* FUNCTIONAL */}
+            {/* TODO: Modify so that changes to controls update song while still playing */}
             {/* set song speed to x/60/4 (converts cpm to bpm) */}
             <div className="input-group mb-3">
                 <span className="input-group-text" id="cpm_label">setBPM</span>
                 <input type="number" min="30" max="240" step="1" className="form-control" id="cpm_text_input" placeholder="120" aria-label="cpm" aria-describedby="cpm_label" onChange={onBpmChange}/>
-
             </div>
 
             {/* FUNCTIONAL */}
@@ -54,6 +56,8 @@ function basic_controls({ volumeChange, onVolumeChange, bpmChange, onBpmChange, 
             <label htmlFor="vol_range" className="form-label">Volume</label>
             <input type="range" className="form-range" min="0" max="2" step="0.1" onMouseUp={onVolumeChange} id="vol_range"></input>
 
+            {/* FUNCTIONAL */}
+            {/* TODO: Modify so that changes to controls update song while still playing */}
             {/* Checkboxes to mute particular instruments */}
             <div className="form-check">
                 <input className="form-check-input" type="checkbox" value="" id="bassline" checked={bassChange} onChange={onBassChange}/>

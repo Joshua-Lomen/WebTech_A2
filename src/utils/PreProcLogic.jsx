@@ -1,14 +1,17 @@
+// function to process strudel code before running
 export function PreProcess({inputText, volume, bpm, bass, arp, drums, drums2}) {
+    
+    // might not need this, test
     let outputText = inputText + "\n//Hello, this is a test";
-
     outputText += `\n//all(x => x.gain(${volume}))`
-
-    // use this for setCPM later
     outputText = outputText.replaceAll("{$VOLUME}", volume)
 
+    // changes song speed to 'bpm' value
     outputText = outputText.replaceAll("setcps(140/60/4)", `setcps(${bpm}/60/4)`)
     
     //for instrument toggles
+    // if true: replace tag with '_' to mute
+    // if false: replace tag with empty string to keep unmuted
     if(bass) {
         outputText = outputText.replaceAll("<bass_tag>", "_")
     }
@@ -37,6 +40,7 @@ export function PreProcess({inputText, volume, bpm, bass, arp, drums, drums2}) {
         outputText = outputText.replaceAll("<d2_tag>", "")
     }
 
+    // find and change gain of all instruments
     let regex = /[a-zA-Z0-9_]+:\s*\n[\s\S]+?\r?\n(?=[a-zA-Z0-9_]*[:\/])/gm;
 
     let m;

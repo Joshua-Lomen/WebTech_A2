@@ -65,6 +65,9 @@ export default function StrudelDemo() {
 
     }, [volume])
 
+    // useState for saving JSON data
+    const [data, setData] = useState([]);
+
 useEffect(() => {
 
     if (!hasRun.current) {

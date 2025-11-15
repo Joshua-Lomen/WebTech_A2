@@ -1,4 +1,4 @@
-import './play_buttons.css'
+import '../stylesheets/play_buttons.css'
 
 function play_buttons({ onPlay, onStop }) {
     return (

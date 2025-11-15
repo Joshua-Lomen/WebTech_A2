@@ -27,7 +27,7 @@ export default function StrudelDemo() {
 
     // preprocess text on play
     const handlePlay = () => {
-        let outputText = PreProcess({ inputText: procText, volume: volume });
+        let outputText = PreProcess({ inputText: procText, volume: volume, bpm: bpm, bass: bassline, arp: arp, drums: drums, drums2: drums2 });
         globalEditor.setCode(outputText);
         globalEditor.evaluate()
     }

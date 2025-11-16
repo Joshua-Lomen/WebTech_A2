@@ -14,6 +14,7 @@ import PlayButtons from './components/play_buttons';
 import PreProcTextArea from './components/preproc_textarea';
 import LoadSettingsButtons from './components/load_settings_buttons';
 import { PreProcess } from './utils/PreProcLogic';
+import testData from './components/test_data.json'
 
 let globalEditor = null;
 
@@ -77,10 +78,23 @@ export default function StrudelDemo() {
             handlePlay();
         }
 
-    }, [volume])
+    }, [volume, bpm, bassline, arp, drums, drums2])
 
     // useState for saving JSON data
     const [data, setData] = useState([]);
+
+    const loadData = () => {
+        // setBpm(testData.bpm)
+        // setVolume(testData.volume)
+        // setBassline(testData.bassline)
+        // setArp(testData.arp)
+        // setDrums(testData.drums)
+        // setDrums2(testData.drums2)
+    }
+
+    const saveData = () => {
+
+    }
 
 useEffect(() => {
 
@@ -137,7 +151,7 @@ return (
                         <nav>
                             <PlayButtons onPlay={() => { setState("play"); handlePlay()}} onStop={() => { setState("stop"); handleStop() }}/>
                             <br />
-                            <LoadSettingsButtons />
+                            <LoadSettingsButtons loadData={loadData()} saveData={saveData()}/>
                         </nav>
                     </div>
                 </div>

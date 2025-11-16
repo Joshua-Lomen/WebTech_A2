@@ -15,6 +15,7 @@ import PreProcTextArea from './components/preproc_textarea';
 import LoadSettingsButtons from './components/load_settings_buttons';
 import { PreProcess } from './utils/PreProcLogic';
 import testData from './components/test_data.json'
+import savedData from './components/saved_data.json'
 
 let globalEditor = null;
 
@@ -84,16 +85,22 @@ export default function StrudelDemo() {
     const [data, setData] = useState([]);
 
     const loadData = () => {
-        // setBpm(testData.bpm)
-        // setVolume(testData.volume)
-        // setBassline(testData.bassline)
-        // setArp(testData.arp)
-        // setDrums(testData.drums)
-        // setDrums2(testData.drums2)
+        // setBpm(testData.bpm);
+        // setVolume(testData.volume);
+        // setBassline(testData.bassline);
+        // setArp(testData.arp);
+        // setDrums(testData.drums);
+        // setDrums2(testData.drums2);
     }
 
     const saveData = () => {
-
+        savedData.bpm = bpm;
+        savedData.volume = volume;
+        savedData.bassline = bassline;
+        savedData.arp = arp;
+        savedData.drums = drums;
+        savedData.drums2 = drums2;
+        console.log(savedData);
     }
 
 useEffect(() => {

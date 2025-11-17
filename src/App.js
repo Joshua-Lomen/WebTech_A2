@@ -14,6 +14,8 @@ import PlayButtons from './components/play_buttons';
 import PreProcTextArea from './components/preproc_textarea';
 import LoadSettingsButtons from './components/load_settings_buttons';
 import { PreProcess } from './utils/PreProcLogic';
+import testData from './components/test_data.json'
+import savedData from './components/saved_data.json'
 
 let globalEditor = null;
 
@@ -27,7 +29,7 @@ export default function StrudelDemo() {
 
     // preprocess text on play
     const handlePlay = () => {
-        let outputText = PreProcess({ inputText: procText, volume: volume });
+        let outputText = PreProcess({ inputText: procText, volume: volume, bpm: bpm, bass: bassline, arp: arp, drums: drums, drums2: drums2 });
         globalEditor.setCode(outputText);
         globalEditor.evaluate()
     }
@@ -39,8 +41,34 @@ export default function StrudelDemo() {
     // text to process
     const [procText, setProcText] = useState(stranger_tune)
 
+    // bpm
+    const [bpm, setBpm] = useState(140)
+
+    // input validation to keep input between min and max
+    const handleBpmInput = (e) => {
+        const newValue = e.target.value;
+        if (newValue < 60) {
+            setBpm(60);
+        }
+        else if (newValue > 220) {
+            setBpm(220);
+        }
+        else {
+            setBpm(newValue);
+        }
+    }
+
     // volume
     const [volume, setVolume] = useState(1);
+
+    // instrument toggles
+    // true = mute
+    // false = unmute
+    const [bassline, setBassline] = useState(false);
+    const [arp, setArp] = useState(false);
+    const [drums, setDrums] = useState(false);
+    const [drums2, setDrums2] = useState(false);
+
 
     // state for play and stop
     const [state, setState] = useState("stop");
@@ -51,7 +79,26 @@ export default function StrudelDemo() {
             handlePlay();
         }
 
-    }, [volume])
+    }, [volume, bpm, bassline, arp, drums, drums2])
+
+    const loadData = () => {
+        setBpm(testData.bpm);
+        setVolume(testData.volume);
+        setBassline(testData.bassline);
+        setArp(testData.arp);
+        setDrums(testData.drums);
+        setDrums2(testData.drums2);
+    }
+
+    const saveData = () => {
+        savedData.bpm = bpm;
+        savedData.volume = volume;
+        savedData.bassline = bassline;
+        savedData.arp = arp;
+        savedData.drums = drums;
+        savedData.drums2 = drums2;
+        console.log(savedData);
+    }
 
 useEffect(() => {
 
@@ -108,7 +155,7 @@ return (
                         <nav>
                             <PlayButtons onPlay={() => { setState("play"); handlePlay()}} onStop={() => { setState("stop"); handleStop() }}/>
                             <br />
-                            <LoadSettingsButtons />
+                            <LoadSettingsButtons loadData={loadData} saveData={saveData}/>
                         </nav>
                     </div>
                 </div>
@@ -118,7 +165,20 @@ return (
                         <div id="output" />
                     </div>
                     <div className="col-md-4">
-                        <BasicControls volumeChange={volume} onVolumeChange={(e) => setVolume(e.target.value)}/>
+                        <BasicControls 
+                            volumeChange={volume} 
+                            onVolumeChange={(e) => setVolume(e.target.value)} 
+                            bpmChange={bpm} 
+                            onBpmChange={handleBpmInput}
+                            bassChange={bassline}
+                            onBassChange={(e) => setBassline(e.target.checked)}
+                            arpChange={arp}
+                            onArpChange={(e) => setArp(e.target.checked)}
+                            dChange={drums}
+                            onDChange={(e) => setDrums(e.target.checked)}    
+                            d2Change={drums2}
+                            onD2Change={(e) => setDrums2(e.target.checked)}
+                        />
                     </div>
                 </div>
             </div>

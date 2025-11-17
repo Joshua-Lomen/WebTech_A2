@@ -1,10 +1,11 @@
 # WebTech Assignment 2
-Controls used:
-Checkboxes for enabling/disabling different song components
-Slider for controlling volume
-Text input to change song speed
-
-also included buttons for saving and loading data (JSON handling)
+Bootstrap Components used:
+- Checkboxes for enabling/disabling different instruments
+- Slider for controlling volume
+- Text input to change song speed
+- Accordion to store previous 3 components
+- Buttons for saving and loading data (JSON handling)
+- *potentially add more if time*
 
 DEMO VIDEO HERE: ''
 

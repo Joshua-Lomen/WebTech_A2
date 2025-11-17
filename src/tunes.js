@@ -39,7 +39,7 @@ const arpeggiator2 = [
 const pattern = 0
 const bass = 0
 
-bassline:
+<bass_tag>bassline:
 note(pick(basslines, bass))
 .sound("supersaw")
 .postgain(2)
@@ -50,7 +50,7 @@ note(pick(basslines, bass))
 .gain(1)
 
 
-main_arp: 
+<arp_tag>main_arp: 
 note(pick(arpeggiator1, "<0 1 2 3>/2"))
 .sound("supersaw")
 .lpf(300)
@@ -62,7 +62,7 @@ note(pick(arpeggiator1, "<0 1 2 3>/2"))
 
 
 
-drums:
+<d_tag>drums:
 stack(
   s("tech:5")
   .postgain(6)
@@ -81,7 +81,7 @@ stack(
   .postgain(.25),
 )
 
-drums2: 
+<d2_tag>drums2: 
 stack(
   s("[~ hh]*4").bank("RolandTR808").room(0.3).speed(0.75).gain(1.2),
   s("hh").struct("x*16").bank("RolandTR808")

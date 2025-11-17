@@ -1,6 +1,6 @@
 import '../stylesheets/load_settings_buttons.css'
 
-function load_settings_buttons(loadData, saveData) {
+function load_settings_buttons({loadData, saveData}) {
     return (
         <>
             {/* save settings as json */}

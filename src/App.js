@@ -81,16 +81,13 @@ export default function StrudelDemo() {
 
     }, [volume, bpm, bassline, arp, drums, drums2])
 
-    // useState for saving JSON data
-    const [data, setData] = useState([]);
-
     const loadData = () => {
-        // setBpm(testData.bpm);
-        // setVolume(testData.volume);
-        // setBassline(testData.bassline);
-        // setArp(testData.arp);
-        // setDrums(testData.drums);
-        // setDrums2(testData.drums2);
+        setBpm(testData.bpm);
+        setVolume(testData.volume);
+        setBassline(testData.bassline);
+        setArp(testData.arp);
+        setDrums(testData.drums);
+        setDrums2(testData.drums2);
     }
 
     const saveData = () => {
@@ -158,7 +155,7 @@ return (
                         <nav>
                             <PlayButtons onPlay={() => { setState("play"); handlePlay()}} onStop={() => { setState("stop"); handleStop() }}/>
                             <br />
-                            <LoadSettingsButtons loadData={loadData()} saveData={saveData()}/>
+                            <LoadSettingsButtons loadData={loadData} saveData={saveData}/>
                         </nav>
                     </div>
                 </div>

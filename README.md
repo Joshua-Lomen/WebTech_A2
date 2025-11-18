@@ -1,13 +1,21 @@
 # WebTech Assignment 2
-Bootstrap Components used:
-- Checkboxes for enabling/disabling different instruments
-- Slider for controlling volume
-- Text input to change song speed
-- Accordion to store previous 3 components
-- Buttons for saving and loading data (JSON handling)
-- *potentially add more if time*
-
-DEMO VIDEO HERE: ''
+## Bootstrap Components used:
+### Checkboxes for enabling/disabling different instruments
+- Includes 4 checkboxes, representing the 4 instruments in the song
+- Checking a box mutes the corresponding instrument
+### Slider for controlling volume
+- A slider that will change the volume of the song
+### Text input to change song speed
+- An input field that will change the song's speed
+- Will only accept number inputs
+- Can set any number from 60-220
+- Will default to min or max value if input is out of range
+### Accordion to store previous 3 components
+- An Accordion with collapsible sections for the speed input, volume slider and instrument toggles
+### Buttons for saving and loading data (JSON handling)
+- LOAD button loads settings from local JSON file (test_data.json)
+- SAVE button saves current settings to local JSON file (saved_data.json)
+- Saved data is logged in console
 
 ## Song Used
 used the 'stranger_tune' song provided in starter code

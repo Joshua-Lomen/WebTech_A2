@@ -12,6 +12,8 @@ function basic_controls({ volumeChange, onVolumeChange, bpmChange, onBpmChange, 
                     {/* FUNCTIONAL */}
                     {/* TODO: Modify so that changes to controls update song while still playing */}
                     {/* set song speed to x/60/4 (converts cpm to bpm) */}
+                    <p>Set from 60 to 220</p>
+                    <p>Current BPM: {bpmChange}</p>
                     <div className="input-group mb-3">
                         <span className="input-group-text" id="cpm_label">setBPM</span>
                         <input type="number" min="60" max="220" step="1" className="form-control" id="cpm_text_input" placeholder="Enter number" aria-label="cpm" aria-describedby="cpm_label" onChange={onBpmChange}/>
